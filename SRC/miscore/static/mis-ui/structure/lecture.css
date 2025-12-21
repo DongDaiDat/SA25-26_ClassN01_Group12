@@ -1,0 +1,98 @@
+/* ===== Lecture page (v-center modal) ===== */
+
+/* Page */
+.lec-page { padding: 16px 18px; }
+.lec-header h2 { margin: 0 0 4px; font-size: 18px; }
+.lec-sub { margin: 0; opacity: .7; font-size: 12px; }
+
+/* Toolbar */
+.lec-toolbar { margin: 14px 0 8px; display: flex; gap: 12px; flex-wrap: wrap; }
+.lec-search { display: flex; align-items: center; gap: 6px; border: 1px solid #e5e7eb; border-radius: 10px; padding: 6px 8px; background: #fff; }
+.lec-search input { border: none; outline: none; font-size: 14px; width: 340px; }
+.lec-search button { border: none; background: transparent; cursor: pointer; font-size: 14px; opacity: .6; }
+
+/* Buttons */
+.btn { border: 1px solid #e5e7eb; background: #fff; padding: 6px 10px; border-radius: 10px; cursor: pointer; font-size: 14px; }
+.btn:hover { background: #f9fafb; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Table */
+.lec-table-wrap { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
+.lec-table { width: 100%; border-collapse: collapse; }
+.lec-table thead th{
+  background:#1f2937;color:#e5e7eb;text-align:left;font-weight:600;font-size:13px;
+  padding:10px 12px;border-bottom:1px solid #374151;
+}
+.lec-table thead th.sortable{cursor:pointer;user-select:none;}
+.lec-table tbody td{padding:11px 12px;border-bottom:1px solid #f3f4f6;font-size:14px;}
+.lec-table tbody tr:hover{background:#f9fafb;}
+.lec-empty{padding:12px;text-align:center;color:#6b7280;}
+
+/* Name clickable */
+.lec-name{color:#0ea5e9;text-decoration:none;}
+.lec-name:hover{text-decoration:underline;}
+
+/* Sort arrow */
+.sort-ind{margin-left:6px;opacity:.8;display:none;}
+.sort-ind.show{display:inline-block;}
+.sort-ind::before{content:"▴";font-size:12px;}
+.sort-ind.desc::before{content:"▾";}
+
+/* Pagination */
+.lec-pagination{display:flex;gap:10px;align-items:center;justify-content:flex-end;padding:12px 2px;}
+
+/* Status icon */
+.status-ic{width:20px;height:20px;vertical-align:-4px;}
+.status-ic.ok circle,.status-ic.ok path{stroke:#22c55e;}
+.status-ic.no circle,.status-ic.no path{stroke:#ef4444;}
+
+/* ===== Modal (CENTERED) ===== */
+.lec-modal.hidden{display:none;}
+.lec-modal{
+  position:fixed; inset:0; z-index:60;
+  display:grid;           /* <- center cả ngang lẫn dọc */
+  place-items:center;     /* <- điểm mấu chốt để ra giữa */
+}
+.lec-modal__backdrop{
+  position:absolute; inset:0;
+  background:rgba(17,24,39,.5);
+  backdrop-filter:saturate(120%) blur(1.5px);
+}
+.lec-modal__panel{
+  position:relative; margin:0;                 /* bỏ margin-top cố định */
+  width:min(760px,92vw);
+  max-height:90vh;                              /* nội dung dài vẫn cuộn */
+  overflow:auto;
+  background:#fff; border-radius:14px;
+  box-shadow:0 12px 32px rgba(0,0,0,.25);
+  padding:20px 22px 22px;
+}
+.lec-modal__close{
+  position:absolute; top:8px; right:12px;
+  font-size:22px; border:none; background:transparent;
+  cursor:pointer; opacity:.7;
+}
+.lec-modal__close:hover{opacity:1;}
+
+.lec-md__head{margin:4px 0 10px;}
+.lec-md__name{font-weight:700;font-size:18px;}
+.lec-md__pos{font-size:13px;opacity:.8;margin-top:4px;}
+
+.lec-md__grid{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 18px;
+}
+/* Modal labels — tăng cỡ & đậm màu */
+.lec-md__label{
+  font-size: 14px;        /* 12px -> 14px */
+  font-weight: 600;       /* đậm hơn một nhịp */
+  color: #0f172a;         /* màu chữ đậm (slate-900) */
+  opacity: .95;           /* bớt mờ (trước .6) */
+  display: block;
+  margin-bottom: 4px;     /* nới nhẹ khoảng cách nhãn–giá trị */
+}
+
+
+@media (max-width:640px){
+  .lec-md__grid{grid-template-columns:1fr;}
+  .lec-modal__panel{width:min(96vw,640px);padding:18px;}
+}

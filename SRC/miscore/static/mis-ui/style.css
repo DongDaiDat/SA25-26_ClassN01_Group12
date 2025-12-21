@@ -1,0 +1,468 @@
+/* =========================
+   BIẾN MÀU & KÍCH THƯỚC
+   ========================= */
+:root {
+  --sidebar-width: 240px;
+  --topbar-height: 56px;
+  --bg-page: #edf1fa;
+  --blue-dark: #062847;          /* nền sidebar */
+  --blue-darker: #051b33;
+  --blue-accent: #7da3ff;
+  --orange: #ff8a3d;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-page);
+  color: var(--text);
+}
+
+/* =========================
+   LAYOUT CHUNG
+   ========================= */
+.app-shell {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--blue-dark);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 8px;
+}
+
+/* logo + tên trường */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 6px;
+}
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  color: var(--blue-dark);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.brand-title {
+  line-height: 1.05;
+}
+.brand-title small {
+  display: block;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.nav-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.5;
+  margin: 10px 18px 6px;
+}
+
+/* mục sidebar chính */
+.nav-item {
+  display: flex;          /* <-- QUAN TRỌNG */
+  align-items: center;    /* canh giữa theo trục dọc */
+  gap: 12px;              /* khoảng cách icon - chữ */
+  color: #e3ebff;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.nav-item.active {
+  color: #ff8a3d;
+}
+
+/* icon ở sidebar */
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+}
+.nav-svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+}
+
+/* mũi tên mở rộng */
+.nav-item .chevron {
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  /* trạng thái ĐÓNG: mũi tên ngang sang phải (>) */
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+  opacity: 0.7;
+}
+
+/* trạng thái MỞ: mũi tên hướng xuống (v) */
+.nav-item.active .chevron {
+  transform: rotate(45deg);
+  opacity: 1;
+  color: #ff8a3d; /* cho giống màu cam profile */
+}
+
+.submenu {
+  position: relative;
+  margin-left: 46px;
+  padding-left: 0;        /* <- quan trọng */
+  margin-top: 4px;
+  list-style: none;
+}
+
+
+/* vạch dọc */
+.submenu::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(173, 193, 232, 0.85);
+}
+
+
+/* từng dòng submenu */
+.submenu-item {
+  position: relative;
+  padding: 6px 0 6px 28px;   /* chữ cách vạch 14px */
+  height: 30px;
+  display: flex;
+  align-items: center;
+  color: #e6edf7;
+}
+
+/* CHẤM trùng tâm vạch:
+   vạch = 12px → chấm = 8px → left = 8px để tâm = 12px
+*/
+.submenu-item::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;         /* 8px/2 để tâm trùng vạch */
+  background: #7da3ff;
+  border-radius: 999px;
+}
+
+/* active dòng con */
+.submenu-item.active {
+  color: var(--orange);
+  font-weight: 500;
+}
+.submenu-item.active::before {
+  background: var(--orange);
+}
+
+/* =========================
+   MAIN AREA
+   ========================= */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top, #080f2073, #060915 70%) fixed,
+    var(--bg-page);
+  background-size: cover;
+}
+
+/* =========================
+   TOPBAR
+   ========================= */
+.topbar {
+  height: var(--topbar-height);
+  background: rgba(9, 40, 77, 0.65);
+  backdrop-filter: saturate(140%) blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: #fff;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 6px 16px;
+  min-width: 280px;
+}
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #fff;
+  width: 100%;
+}
+
+.user-block { display:flex; align-items:center; gap:10px; }
+.user-btn { display:flex; align-items:center; gap:10px; border:none; background:transparent; cursor:pointer; }
+.user-btn:hover .user-name { text-decoration: underline; }
+.user-meta { text-align:right; line-height:1.1; }
+.user-name { font-size:13px; font-weight:600; color:#fff; }
+.user-role { font-size:11px; opacity:.75; color:#dbeafe; } /* màu nhạt */
+.avatar { width:32px; height:32px; border-radius:50%; background:#fff; color:#0f172a; display:grid; place-items:center; font-weight:700; }
+.btn.primary { padding:6px 10px; border-radius:8px; background:#0ea5e9; color:#fff; border:none; }
+.btn.ghost { padding:6px 10px; border-radius:8px; background:rgba(255,255,255,.08); color:#e5e7eb; border:1px solid rgba(255,255,255,.15); }
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--blue-dark);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* =========================
+   NỘI DUNG CHÍNH
+   ========================= */
+.content-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 24px 22px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+/* khung trắng bo góc */
+.panel {
+  background: rgba(248, 249, 252, 0.98);
+  border-radius: 18px 18px 0 0;
+  min-height: calc(100% - 16px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   TAB thanh ngang
+   ========================= */
+.tab-bar {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 18px 0;
+}
+.tab {
+  padding: 8px 14px 10px;
+  border-radius: 999px 999px 0 0;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  color: #4b5563;
+}
+.tab.active {
+  background: #fff;
+  color: #111827;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(15, 50, 97, 0.12);
+}
+
+/* =========================
+   FILTER HÀNG TRÊN
+   ========================= */
+.filter-row {
+  display: flex;
+  gap: 12px;
+  padding: 14px 18px 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: #374151;
+}
+.input-wrap input {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+.primary-btn {
+  background: #0f3261;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* =========================
+   GRID THẺ TIN TỨC
+   ========================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 14px 18px 20px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  gap: 12px;
+  min-height: 120px;
+  box-shadow: 0 4px 18px rgba(187, 198, 228, 0.25);
+  border: 1px solid rgba(226, 232, 255, 0.5);
+}
+
+.news-thumb {
+  width: 88px;
+  background: #fef3c7;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #ad4f19;
+  font-size: 13px;
+  padding: 6px;
+}
+
+.news-body {
+  flex: 1;
+  padding: 10px 12px 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.news-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 890px) {
+  .sidebar {
+    width: 70px;
+  }
+  .nav-item span:not(.nav-icon),
+  .nav-section-title,
+  .submenu {
+    display: none;
+  }
+  .brand-title {
+    display: none;
+  }
+  .main-area {
+    flex: 1;
+  }
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* === FULL-BLEED: bỏ khung panel + tiêu đề trang, cho nội dung tràn viền === */
+.content-wrapper{
+  padding: 0 !important;           /* bỏ padding ngoài cùng */
+}
+
+/* Ẩn dòng tiêu đề nhỏ ở trên (news, lecture, ...) */
+.page-title{
+  display: none !important;
+}
+
+/* Khung panel trắng bo góc -> bỏ nền, bỏ bo góc, không còn “viền” tối xung quanh */
+.panel{
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-height: 100% !important;
+}
+
+/* (tuỳ chọn) Nếu trang News vẫn còn khoảng đệm,
+   cho lưới/thành phần chính sát mép luôn */
+.cards-grid{ padding: 0 !important; }
+.filter-row{ padding-left: 0 !important; padding-right: 0 !important; }
+.tab-bar{ padding-left: 0 !important; padding-right: 0 !important; border-bottom: none !important; }
+
+
+/* === FORCE WHITE BACKGROUND FOR ALL PAGES === */
+html, body,
+#app, .app, .layout, .page, .page-container,
+.content, .content-wrapper, .main, .viewport {
+  background-color: #fff !important;
+  background-image: none !important;   /* tắt gradient nền */
+}
+
+/* Nhiều theme vẽ gradient bằng pseudo-element ::before */
+body::before, #app::before, .page::before, .content::before {
+  content: none !important;
+}
+
+/* Giữ panel/nội dung trắng, sát nền trắng luôn */
+.panel {
+  background: #fff !important;
+  box-shadow: none;         /* tuỳ thích: bỏ đổ bóng nếu muốn phẳng hoàn toàn */
+}
+

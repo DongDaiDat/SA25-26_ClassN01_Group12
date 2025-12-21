@@ -1,0 +1,42 @@
+<div class="crs-page">
+  <div class="crs-header">
+    <h2>Structure / Course</h2>
+    <p class="crs-sub">Danh sách học phần (view-only)</p>
+  </div>
+
+  <div class="crs-toolbar">
+    <div class="crs-search">
+      <input id="crs-q" type="text" placeholder="Tìm theo mã / tên học phần…">
+      <button id="crs-clear" title="Xoá tìm kiếm">×</button>
+    </div>
+  </div>
+
+  <div class="crs-table-wrap">
+    <table class="crs-table">
+      <thead>
+        <tr>
+          <th class="sortable" data-key="code">MÃ HỌC PHẦN <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="name">TÊN HỌC PHẦN <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="faculty">KHOA QUẢN LÝ <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="credits">SỐ TÍN <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="credits_lt">TÍN LT <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="credits_th">TÍN TH <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="is_active">IS ACTIVE <span class="sort-ind"></span></th>
+        </tr>
+      </thead>
+      <tbody id="crs-tbody">
+        <tr><td colspan="7" class="crs-empty">Đang tải…</td></tr>
+      </tbody>
+    </table>
+
+    <div class="crs-pagination">
+      <button id="crs-prev" class="btn" disabled>Trước</button>
+      <span id="crs-pageinfo">1/1</span>
+      <button id="crs-next" class="btn" disabled>Tiếp</button>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/static/mis-ui/study/course.css?v=10">
+<script src="/static/mis-ui/study/course.js?v=10"></script>
+<script>window.__forceMountCourse && window.__forceMountCourse();</script>

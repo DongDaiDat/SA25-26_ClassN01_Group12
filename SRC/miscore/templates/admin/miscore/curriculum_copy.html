@@ -1,0 +1,49 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block content %}
+<h1>{{ title }}</h1>
+
+<style>
+  .sec{background:#11182733;padding:16px;border-radius:10px;margin:16px 0}
+  .row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+  .btn{padding:8px 12px;border-radius:8px;border:1px solid #475569;background:#334155;color:#e2e8f0}
+  .btn-primary{background:#2563eb;border-color:#1d4ed8}
+  select, input[type="checkbox"]{background:#0b1220;border:1px solid #334155;color:#e2e8f0;padding:8px;border-radius:8px;width:100%}
+  .hint{color:#94a3b8;font-size:13px;margin-top:8px}
+  .inline{display:flex;gap:10px;align-items:center}
+</style>
+
+<div class="sec">
+  <form method="post" action="">
+    {% csrf_token %}
+    <div class="row">
+      <div>
+        <label>Chọn CTĐT nguồn</label>
+        <select name="src_curriculum" required>
+          <option value="">— Chọn CTĐT —</option>
+          {% for c in curricula %}
+            <option value="{{ c.id }}">{{ c.major }} — {{ c.faculty }} — {{ c.year }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label>Chọn CTĐT đích</label>
+        <select name="dst_curriculum" required>
+          <option value="">— Chọn CTĐT —</option>
+          {% for c in curricula %}
+            <option value="{{ c.id }}">{{ c.major }} — {{ c.faculty }} — {{ c.year }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit">Sao chép</button>
+      </div>
+    </div>
+
+    <label class="inline" style="margin-top:10px" title="Xóa toàn bộ ListCourse của CTĐT đích trước khi sao chép">
+      <input type="checkbox" name="clear_target"> Xóa ListCourse của CTĐT đích trước
+    </label>
+    <p class="hint">Mặc định bỏ qua học phần đã tồn tại ở CTĐT đích (ràng buộc: (CTĐT, Mã HP)).</p>
+  </form>
+</div>
+{% endblock %}

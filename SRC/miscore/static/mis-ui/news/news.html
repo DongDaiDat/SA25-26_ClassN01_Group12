@@ -1,0 +1,136 @@
+<!-- static/mis-ui/news/news.html (v3) -->
+<div class="news-wrap">
+  <!-- HERO -->
+  <section class="news-hero card">
+    <div class="news-hero__body">
+      <p class="news-eyebrow">PHENIKAA • EDUCATION MANAGEMENT</p>
+      <h1 class="news-title">Tin tức & Thông báo hệ thống</h1>
+      <p class="news-sub">
+        Cập nhật thay đổi quan trọng liên quan tới Chương trình đào tạo, bảo trì hệ thống,
+        sự kiện học thuật và cơ hội cộng tác nội bộ.
+      </p>
+      <div class="news-meta">
+        <span class="badge">Bản tin nội bộ</span>
+        <span class="sep">•</span>
+        <span class="dim">Cập nhật gần nhất: <span id="news-last-update">—</span></span>
+      </div>
+    </div>
+    <div class="news-hero__art" aria-hidden="true">
+      <svg viewBox="0 0 280 280" class="news-orb">
+        <defs>
+          <radialGradient id="news-g" cx="50%" cy="50%">
+            <stop offset="0%"  stop-color="#38bdf8" stop-opacity=".95"/>
+            <stop offset="60%" stop-color="#0ea5e9" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="140" cy="140" r="120" fill="url(#news-g)"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <section class="news-toolbar card">
+    <div class="news-chips">
+      <button class="news-chip is-active" data-filter="all">Tất cả</button>
+      <button class="news-chip" data-filter="thong-bao">Thông báo</button>
+      <button class="news-chip" data-filter="su-kien">Sự kiện</button>
+      <button class="news-chip" data-filter="he-thong">Hệ thống</button>
+      <button class="news-chip" data-filter="tuyen-dung">Tuyển dụng</button>
+    </div>
+    <div class="news-search">
+      <input id="news-q" type="search" placeholder="Tìm tiêu đề, thẻ, ngày…">
+    </div>
+  </section>
+
+  <div class="news-grid">
+    <!-- TRÁI: lưới tin -->
+    <section class="news-main">
+      <div class="news-cards">
+
+        <!-- CARDs mẫu (toàn bộ dữ liệu bịa, có data-tags và data-date YYYY-MM-DD) -->
+        <article class="news-card" data-tags="thong-bao,ctdt" data-date="2025-11-18">
+          <div class="news-card__thumb thumb--blue"></div>
+          <div class="news-card__body">
+            <div class="news-card__tags"><span class="tag">Thông báo</span><span class="tag">CTĐT</span></div>
+            <h3 class="news-card__title">Cập nhật CTĐT HK II/2025: Chuẩn hoá danh mục học phần</h3>
+            <p class="news-card__desc">Đối soát mã học phần, mô tả song ngữ và phân loại BB/TC. Dữ liệu đã đồng bộ trang <b>Curriculum</b> (view-only).</p>
+            <div class="news-card__meta"><span class="date">18/11/2025</span><span class="dot">•</span><span class="author">Phòng Đào tạo</span></div>
+          </div>
+        </article>
+
+        <article class="news-card" data-tags="he-thong,bao-tri" data-date="2025-11-20">
+          <div class="news-card__thumb thumb--indigo"></div>
+          <div class="news-card__body">
+            <div class="news-card__tags"><span class="tag">Hệ thống</span><span class="tag">Bảo trì</span></div>
+            <h3 class="news-card__title">Bảo trì 20/11 (22:00–23:30): Tạm gián đoạn truy cập</h3>
+            <p class="news-card__desc">Nâng cấp DB & tối ưu truy vấn trang Curriculum. Vui lòng hoàn tất phiên làm việc trước 22:00.</p>
+            <div class="news-card__meta"><span class="date">20/11/2025</span><span class="dot">•</span><span class="author">ICT Center</span></div>
+          </div>
+        </article>
+
+        <article class="news-card" data-tags="su-kien,hoi-thao" data-date="2025-11-23">
+          <div class="news-card__thumb thumb--teal"></div>
+          <div class="news-card__body">
+            <div class="news-card__tags"><span class="tag">Sự kiện</span><span class="tag">Hội thảo</span></div>
+            <h3 class="news-card__title">Workshop: Ứng dụng AI trong quản trị dữ liệu CTĐT</h3>
+            <p class="news-card__desc">Chia sẻ pipeline chuẩn hoá dữ liệu học phần & tự động kiểm tra tiên quyết. 9:00, 23/11, Hội trường A.</p>
+            <div class="news-card__meta"><span class="date">23/11/2025</span><span class="dot">•</span><span class="author">Academic Affairs</span></div>
+          </div>
+        </article>
+
+        <article class="news-card" data-tags="tuyen-dung,cong-tac-vien" data-date="2025-11-25">
+          <div class="news-card__thumb thumb--amber"></div>
+          <div class="news-card__body">
+            <div class="news-card__tags"><span class="tag">Tuyển dụng</span><span class="tag">CTV</span></div>
+            <h3 class="news-card__title">Tìm CTV nhập liệu học phần (part-time)</h3>
+            <p class="news-card__desc">Ưu tiên SV có kinh nghiệm Excel, hiểu BB/TC, LT/TH. 10–15h/tuần, hỗ trợ phụ cấp.</p>
+            <div class="news-card__meta"><span class="date">25/11/2025</span><span class="dot">•</span><span class="author">Phòng Đào tạo</span></div>
+          </div>
+        </article>
+
+        <article class="news-card" data-tags="thong-bao,sinh-vien" data-date="2025-11-27">
+          <div class="news-card__thumb thumb--rose"></div>
+          <div class="news-card__body">
+            <div class="news-card__tags"><span class="tag">Thông báo</span><span class="tag">Sinh viên</span></div>
+            <h3 class="news-card__title">Mở cổng phản hồi CTĐT (27/11–05/12)</h3>
+            <p class="news-card__desc">Góp ý tên học phần, mô tả và đề xuất tiên quyết. Tổng hợp gửi Hội đồng Chương trình.</p>
+            <div class="news-card__meta"><span class="date">27/11/2025</span><span class="dot">•</span><span class="author">QA Unit</span></div>
+          </div>
+        </article>
+
+        <article class="news-card" data-tags="he-thong,release" data-date="2025-11-30">
+          <div class="news-card__thumb thumb--emerald"></div>
+          <div class="news-card__body">
+            <div class="news-card__tags"><span class="tag">Hệ thống</span><span class="tag">Release</span></div>
+            <h3 class="news-card__title">Phát hành Curriculum v15: chống mount lặp & cache-busting</h3>
+            <p class="news-card__desc">Khắc phục reload lần 2 không hiển thị, thêm version query ?v= để tránh cache file JS/CSS.</p>
+            <div class="news-card__meta"><span class="date">30/11/2025</span><span class="dot">•</span><span class="author">Dev Team</span></div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="news-empty" hidden>Không có kết quả phù hợp.</div>
+    </section>
+
+    <!-- PHẢI: bản tin nhanh + sự kiện -->
+    <aside class="news-side">
+      <section class="card news-side__box">
+        <h3 class="side-title">Bản tin nhanh</h3>
+        <ul id="news-quick" class="side-list">
+          <!-- JS sẽ nhét 5 tin mới nhất -->
+        </ul>
+      </section>
+
+      <section class="card news-side__box">
+        <h3 class="side-title">Lịch sự kiện</h3>
+        <ul class="side-list">
+          <li><b>23/11</b> — Workshop AI & CTĐT (Hội trường A)</li>
+          <li><b>26/11</b> — Đối soát dữ liệu CTĐT (Phòng ĐT)</li>
+          <li><b>30/11</b> — Review ràng buộc HP (Khoa/Viện)</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</div>

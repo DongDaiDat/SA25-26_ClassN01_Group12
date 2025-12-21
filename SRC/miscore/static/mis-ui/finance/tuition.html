@@ -1,0 +1,49 @@
+<!-- static/mis-ui/study/tuition.html (v1) -->
+<div id="tui-root" class="tui-wrap">
+  <section class="card">
+    <div class="tui-head">
+      <h2 class="tui-title">Study / Tuition</h2>
+      <p class="tui-sub">Danh sách học phí CTĐT — view-only (pattern giống Major/Course)</p>
+    </div>
+
+    <div class="tui-toolbar">
+      <input id="tui-q" placeholder="Tìm ngành/khoa/năm hoặc ghi chú…">
+      <button id="tui-clear" title="Xoá tìm">×</button>
+
+      <select id="tui-order" title="Sắp xếp">
+        <option value="major">Sắp xếp: Ngành</option>
+        <option value="faculty">Sắp xếp: Khoa</option>
+        <option value="year">Sắp xếp: Năm</option>
+        <option value="-updated_at">Mới cập nhật</option>
+        <option value="-total_amount">Thành tiền ↓</option>
+        <option value="total_amount">Thành tiền ↑</option>
+      </select>
+    </div>
+
+    <div class="tui-table-scroll">
+      <table class="tui-table">
+        <thead>
+          <tr>
+            <th>NGÀNH</th>
+            <th>KHOA</th>
+            <th>NĂM</th>
+            <th>TỔNG TÍN</th>
+            <th>GIÁ/TÍN</th>
+            <th>THÀNH TIỀN</th>
+            <th>CẬP NHẬT</th>
+            <th>GHI CHÚ</th>
+          </tr>
+        </thead>
+        <tbody id="tui-tbody">
+          <tr><td class="tui-empty" colspan="8">Đang tải…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tui-pager">
+      <button id="tui-prev" class="btn" disabled>Trước</button>
+      <span id="tui-page">1/1</span>
+      <button id="tui-next" class="btn" disabled>Tiếp</button>
+    </div>
+  </section>
+</div>

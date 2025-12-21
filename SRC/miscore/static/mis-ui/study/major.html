@@ -1,0 +1,40 @@
+<div class="major-page">
+  <div class="major-header">
+    <h2>Structure / Major</h2>
+    <p class="major-sub">Danh sách ngành (view-only)</p>
+  </div>
+
+  <div class="major-toolbar">
+    <div class="major-search">
+      <input id="maj-q" type="text" placeholder="Tìm theo code / tên / khoa / trường…">
+      <button id="maj-clear" title="Xoá">×</button>
+    </div>
+  </div>
+
+  <div class="major-table-wrap">
+    <table class="major-table">
+      <thead>
+        <tr>
+          <th class="sortable" data-key="code">CODE <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="name">NAME <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="faculty">FACULTY <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="school">SCHOOL <span class="sort-ind"></span></th>
+          <th class="sortable" data-key="is_active">IS ACTIVE <span class="sort-ind"></span></th>
+        </tr>
+      </thead>
+      <tbody id="maj-tbody">
+        <tr><td colspan="5" class="major-empty">Đang tải…</td></tr>
+      </tbody>
+    </table>
+
+    <div class="major-pagination">
+      <button id="maj-prev" class="btn" disabled>Trước</button>
+      <span id="maj-pageinfo">1/1</span>
+      <button id="maj-next" class="btn" disabled>Tiếp</button>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="/static/mis-ui/structure/major.css?v=10">
+<script src="/static/mis-ui/structure/major.js?v=10"></script>
+<script>window.__forceMountMajor && window.__forceMountMajor();</script>
