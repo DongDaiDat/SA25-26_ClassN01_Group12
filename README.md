@@ -1,4 +1,4 @@
-# SA25-26_ClassN01_Group12
+# SA25-26_ClassN01_Group12!
 
 Dự án môn **Software Architecture (SA 2025–2026)** – Nhóm 12  
 Sản phẩm: **TPMS – Training Program Management System**
